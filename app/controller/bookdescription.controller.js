@@ -8,5 +8,20 @@ exports.findAll = (req, res) => {
 			attributes: ['ISBN', 'title', 'description', 'price', 'publisher', 'pubdate', 'edition', 'pages',]
 		}).then(bcats => {
 			res.json(bcats);
-		});
+		});		
 };
+
+
+exports.findAllByCategory = (req, res) => {
+	table.findAll(
+		{
+			attributes: ['ISBN', 'title', 'description', 'price', 'publisher', 'pubdate', 'edition', 'pages',],
+			include: [{
+				model: BookCategory,
+				where: { ISBN: Sequelize.col('bookdescription.ISBN') }
+			}]
+		}).then(bcats => {
+			res.json(bcats);
+		});		
+};
+
