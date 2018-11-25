@@ -25,4 +25,6 @@ module.exports = function(app) {
     app.get('/api/bookdescriptions', bookdescriptions.findAll);
 
     app.get('/api/bookinfo', bookinfo.findAll);
+
+    app.get('/api/bookinfo/:livroISBN', bookinfo.findByISBN);
 }
