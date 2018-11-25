@@ -4,6 +4,7 @@ module.exports = function(app) {
     const bookcategories = require('../controller/bookcategory.controller.js');
     const bookdescriptions = require('../controller/bookdescription.controller.js');
     const bookinfo = require('../controller/bookinfo.controller.js');
+    const bookauthor = require('../controller/author.controller.js');
  
     // Create a new Customer
     app.post('/api/customers', customers.create);
@@ -28,4 +29,6 @@ module.exports = function(app) {
     app.get('/api/bookinfo/busca/:termosBusca', bookinfo.findAllByBusca);
 
     app.get('/api/bookinfo/:livroISBN', bookinfo.findByISBN);
+
+    app.get('/api/bookauthor/:ISBN', bookauthor.findAllByISBN);
 }

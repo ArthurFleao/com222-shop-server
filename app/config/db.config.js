@@ -24,6 +24,7 @@ db.customers = require('../model/customer.model.js')(sequelize, Sequelize);
 db.bookcategories = require('../model/bookcategory.model.js')(sequelize, Sequelize);
 db.bookinfo = require('../model/bookinfo.model.js')(sequelize, Sequelize);
 db.bookdescriptions = require('../model/bookdescription.model.js')(sequelize, Sequelize);
+db.bookauthors = require('../model/author.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;
