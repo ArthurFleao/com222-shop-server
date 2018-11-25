@@ -27,3 +27,4 @@ db.bookdescriptions = require('../model/bookdescription.model.js')(sequelize, Se
 
 
 module.exports = db;
+
