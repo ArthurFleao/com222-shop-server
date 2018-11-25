@@ -16,9 +16,7 @@ exports.findAll = (req, res) => {
 					'pubdate',
 					'edition',
 					'pages',
-					'AuthorID',
-					'nameF',
-					'nameL',]
+					]
 		}).then(bcats => {
 			res.json(bcats);
 		});
@@ -36,10 +34,7 @@ exports.findAllByBusca = (req, res) => {
 					'publisher',
 					'pubdate',
 					'edition',
-					'pages',
-					'AuthorID',
-					'nameF',
-					'nameL',],
+					'pages',],
 					where: {
 						title:{
 							[Op.like]: '%'+req.params.termosBusca+'%'
@@ -65,9 +60,7 @@ exports.findByISBN = (req, res) => {
 					'pubdate',
 					'edition',
 					'pages',
-					'AuthorID',
-					'nameF',
-					'nameL',],
+					],
 
 			where: {
 				ISBN: req.params.livroISBN
