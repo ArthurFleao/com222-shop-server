@@ -6,8 +6,8 @@ exports.findAll = (req, res) => {
 	table.findAll(
 		{
 			attributes: ['ISBN', 'title', 'description', 'price', 'publisher', 'pubdate', 'edition', 'pages',]
-		}).then(bcats => {
-			res.json(bcats);
+		}).then(queryRes => {
+			res.json(queryRes);
 		});		
 };
 
@@ -20,8 +20,8 @@ exports.findAllByCategory = (req, res) => {
 				model: BookCategory,
 				where: { ISBN: Sequelize.col('bookdescription.ISBN') }
 			}]
-		}).then(bcats => {
-			res.json(bcats);
+		}).then(queryRes => {
+			res.json(queryRes);
 		});		
 };
 

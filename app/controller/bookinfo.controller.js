@@ -13,8 +13,8 @@ exports.findAll = (req, res) => {
 					'description',
 				],
 			order: ['title'],
-		}).then(bcats => {
-			res.json(bcats);
+		}).then(queryRes => {
+			res.json(queryRes);
 		});
 };
 exports.findAllByBusca = (req, res) => {
@@ -22,8 +22,8 @@ exports.findAllByBusca = (req, res) => {
 	db.sequelize.query('SELECT DISTINCT title, ISBN, description FROM view_bookinfos WHERE title like :termosBusca ORDER BY title ASC',
 		{ replacements: { termosBusca: '%'+req.params.termosBusca+'%' }, type: db.sequelize.QueryTypes.SELECT }
 		
-	).then(bcats => {
-		res.json(bcats);
+	).then(queryRes => {
+		res.json(queryRes);
 	});
 };
 
@@ -47,7 +47,7 @@ exports.findByISBN = (req, res) => {
 				ISBN: req.params.livroISBN
 			}
 
-		}).then(bcats => {
-			res.json(bcats);
+		}).then(queryRes => {
+			res.json(queryRes);
 		});
 };
