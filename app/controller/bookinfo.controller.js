@@ -11,39 +11,20 @@ exports.findAll = (req, res) => {
 					'ISBN',
 					'title',
 					'description',
-					'price',
-					'publisher',
-					'pubdate',
-					'edition',
-					'pages',
-					]
+				],
+			order: ['title'],
 		}).then(bcats => {
 			res.json(bcats);
 		});
 };
 exports.findAllByBusca = (req, res) => {
-	table.findAll(
-		{
-			attributes:
-				['CategoryID',
-					'CategoryName',
-					'ISBN',
-					'title',
-					'description',
-					'price',
-					'publisher',
-					'pubdate',
-					'edition',
-					'pages',],
-					where: {
-						title:{
-							[Op.like]: '%'+req.params.termosBusca+'%'
-						}
-					}
-					
-		}).then(bcats => {
-			res.json(bcats);
-		});
+
+	db.sequelize.query('SELECT DISTINCT title, ISBN, description FROM view_bookinfos WHERE title like :termosBusca ORDER BY title ASC',
+		{ replacements: { termosBusca: '%'+req.params.termosBusca+'%' }, type: db.sequelize.QueryTypes.SELECT }
+		
+	).then(bcats => {
+		res.json(bcats);
+	});
 };
 
 exports.findByISBN = (req, res) => {
@@ -60,7 +41,7 @@ exports.findByISBN = (req, res) => {
 					'pubdate',
 					'edition',
 					'pages',
-					],
+				],
 
 			where: {
 				ISBN: req.params.livroISBN
