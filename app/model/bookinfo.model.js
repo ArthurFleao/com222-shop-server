@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.INTEGER
 		},
 	  ISBN: {
-			type: Sequelize.INTEGER
+			type: Sequelize.STRING
 		},
 	  edition: {
 			type: Sequelize.INTEGER
