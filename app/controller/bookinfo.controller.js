@@ -11,6 +11,7 @@ exports.findAll = (req, res) => {
 					'ISBN',
 					'title',
 					'description',
+					'price',
 				],
 			order: ['title'],
 		}).then(queryRes => {
