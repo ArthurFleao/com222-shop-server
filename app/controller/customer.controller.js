@@ -3,13 +3,24 @@ const Customer = db.customers;
 
 // Post a Customer
 exports.create = (req, res) => {	
-	// Save to MySQL database
-	let customer = req.body;
-	Customer.create(customer).then(result => {		
-		// Send created customer to client
-		res.json(result);
+	
+	
+	db.sequelize.query('INSERT INTO bookcustomers (fname,lname,email,street,city,state,zip) VALUES (:fname,:lname,:email,:street,:city,:state,:zip)',
+		{ replacements: { 
+			fname: req.body.fname,
+			lname: req.body.lname,
+			email: req.body.email,
+			street: req.body.street,
+			city: req.body.city,
+			state: req.body.state,
+			zip: req.body.zip,
+		}, type: db.sequelize.QueryTypes.INSERT}
+		
+	).then(queryRes => {
+		res.json(queryRes);
 	});
 };
+
  
 // Fetch all Customers
 exports.findAll = (req, res) => {
