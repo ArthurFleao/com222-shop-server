@@ -4,7 +4,6 @@ const Customer = db.customers;
 // Post a Customer
 exports.create = (req, res) => {	
 	
-	
 	db.sequelize.query('INSERT INTO bookcustomers (fname,lname,email,street,city,state,zip) VALUES (:fname,:lname,:email,:street,:city,:state,:zip)',
 		{ replacements: { 
 			fname: req.body.fname,
@@ -15,6 +14,16 @@ exports.create = (req, res) => {
 			state: req.body.state,
 			zip: req.body.zip,
 		}, type: db.sequelize.QueryTypes.INSERT}
+		
+	).then(queryRes => {
+		res.json(queryRes);
+	});
+};
+
+
+exports.findByEmail = (req, res) => {	
+	db.sequelize.query('SELECT * FROM bookcustomers bc WHERE bc.email = :email',
+		{ replacements: { email: req.params.customerEmail }, type: db.sequelize.QueryTypes.SELECT }
 		
 	).then(queryRes => {
 		res.json(queryRes);
