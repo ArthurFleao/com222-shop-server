@@ -29,4 +29,3 @@ db.bookorders = require('../model/bookorder.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;
-
