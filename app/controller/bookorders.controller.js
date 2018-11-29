@@ -30,3 +30,13 @@ exports.addOrder = (req, res) => {
 	});
 };
 
+exports.findAllByCustID = (req, res) => {
+
+	db.sequelize.query('SELECT * FROM view_bookorders bo WHERE bo.custID = :custID',
+		{ replacements: { custID: req.params.custID }, type: db.sequelize.QueryTypes.SELECT }
+		
+	).then(queryRes => {
+		res.json(queryRes);
+	});
+};
+

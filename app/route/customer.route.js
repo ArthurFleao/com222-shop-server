@@ -29,6 +29,7 @@ module.exports = function(app) {
     // Orders
     app.post('/api/bookorder', bookorders.addOrder);
     app.post('/api/bookorderitem', bookorders.addOrderItem);
+    app.get('/api/bookorder/:custID', bookorders.findAllByCustID);
  
 }
 
