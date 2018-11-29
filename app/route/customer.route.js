@@ -5,30 +5,30 @@ module.exports = function(app) {
     const bookdescriptions = require('../controller/bookdescription.controller.js');
     const bookinfo = require('../controller/bookinfo.controller.js');
     const bookauthor = require('../controller/author.controller.js');
+    const bookorders = require('../controller/bookorders.controller.js');
  
-    // Create a new Customer
-    app.post('/api/customers', customers.create);
- 
-    // Retrieve all Customer
-    app.get('/api/customers', customers.findAll);
- 
-    // Retrieve a single Customer by Id
+    // Customer
+    app.post('/api/customers', customers.create); 
     app.get('/api/customers/:customerEmail', customers.findByEmail);
- 
-    // Update a Customer with Id
     app.put('/api/customers', customers.update);
- 
-    // Delete a Customer with Id
-    app.delete('/api/customers/:customerId', customers.delete);
 
+    // Categories
     app.get('/api/bookcategories', bookcategories.findAll);
 
+    // Book descriptions
     app.get('/api/bookdescriptions', bookdescriptions.findAll);
 
+    // Book info
     app.get('/api/bookinfo', bookinfo.findAll);
     app.get('/api/bookinfo/busca/:termosBusca', bookinfo.findAllByBusca);
-
     app.get('/api/bookinfo/:livroISBN', bookinfo.findByISBN);
 
+    // Book Author
     app.get('/api/bookauthor/:ISBN', bookauthor.findAllByISBN);
+   
+    // Orders
+    app.post('/api/bookorder', bookorders.addOrder);
+    app.post('/api/bookorderitem', bookorders.addOrderItem);
+ 
 }
+
