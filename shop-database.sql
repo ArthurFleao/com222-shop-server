@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 28/11/2018 às 16:34
+-- Tempo de geração: 29/11/2018 às 07:09
 -- Versão do servidor: 10.1.36-MariaDB
 -- Versão do PHP: 7.2.11
 
@@ -200,7 +200,13 @@ CREATE TABLE `bookcustomers` (
 INSERT INTO `bookcustomers` (`custID`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`) VALUES
 (1, 'Nome', 'Sobrenome', 'email', 'rua', '', 'es', 'zip'),
 (2, 'Nome', 'Sobrenome', 'email', 'rua', 'cidade', 'es', 'zip'),
-(3, '1321', '2132', 'mar@gmail.com', '2131', '213', '21', '2131');
+(3, '1321', '2132', 'mar@gmail.com', '2131', '213', '21', '2131'),
+(4, 'Amarildo', 'Do mar', 'mar@gmail.com', 'Aqui', 'Itajuba', 'NS', '2193813'),
+(5, 'TTTTT', 'TTTTTTT', 't@t', 'TTTTTT', 'TTTTT', 'TT', '34234'),
+(6, 'jkjk', 'fcggfc', 'a@a', 'ffcfg', 'sad', 'dx', '12345'),
+(7, 'kjnkjn', 'cfghjbk', 'b@b', 'fygvbhkj', 'fvgbjhk', 'et', '234567'),
+(8, 'sdaj', 'saldjknsa', 'c@c', 'laskdj', 'salkdn', 'sl', '213123'),
+(9, 'new', 'new', 'new@new', 'new', 'novayork', 'ne', '21321');
 
 -- --------------------------------------------------------
 
@@ -375,7 +381,7 @@ ALTER TABLE `bookcategories`
 -- AUTO_INCREMENT de tabela `bookcustomers`
 --
 ALTER TABLE `bookcustomers`
-  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
